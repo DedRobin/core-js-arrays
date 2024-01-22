@@ -280,14 +280,7 @@ function createNDimensionalArray(n, size) {
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
 function flattenArray(nestedArray) {
-  const indexOfArray = nestedArray.indexOf(
-    nestedArray.filter((item) => Array.isArray(item))[0]
-  );
-  if (indexOfArray === -1) return nestedArray;
-  return nestedArray
-    .slice(0, indexOfArray)
-    .concat(flattenArray(nestedArray[indexOfArray]))
-    .concat(nestedArray.slice(indexOfArray + 1));
+  return nestedArray.flat(Infinity);
 }
 
 /**
